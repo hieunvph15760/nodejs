@@ -43,13 +43,34 @@ export const remove = async(req, res) => {
     }
 }
 export const update = async(req, res) => {
-    req.body.slug = slugify(req.body.name);
     try {
-        const product = await Product.findOneAndUpdate({ slug:req.params.slug }, req.body, { new: true }).exec();
+        const product = await Product.findOneAndUpdate({ _id:req.params.id }, req.body, { new: true }).exec();
         res.json(product);
     } catch (error) {
         res.status(400).json({
             error: "Update sản phẩm không thành công !"
+        })
+    }
+}
+
+export const sort = async(req,res) =>{
+    try {
+        const product = await Product.find().sort({price: 'asc'});
+        res.json(product);
+    } catch (error) {
+        res.status(400).json({
+            error:"Không sắp xếp được !"
+        })
+    }
+}
+
+export const search = async (req,res) =>{
+    try {
+        const product = await Product.find({$text: {$search:req.query.q}}).exec();
+        res.json(product);
+    } catch (error) {
+        return res.status(400).json({
+            error:"Không tìm được sản phẩm !"
         })
     }
 }

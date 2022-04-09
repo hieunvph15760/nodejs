@@ -6,18 +6,22 @@ const userSchema = mongoose.Schema({
     name:{
         type:String,
         required:true,
-        maxLength:30
+        trim:true
     },
     email:{
         type:String,
-        required:true,
-        unique:true
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
     },
     salt:{
         type:String
     },
-    password:{
-        type:String
+    role:{
+        type:Number,
+        default:0
     }
 },{timestamp:true});
 
@@ -35,10 +39,10 @@ userSchema.methods = {
     }
 }
 
-userSchema.pre("save",async function save(next){
+userSchema.pre("save", function(next){
     try {
         this.salt = uuidv4();
-         this.password = this.encrypPassword(this.password);
+        this.password = this.encrypPassword(this.password);
          return next();
     } catch (error) {
         return next(error);

@@ -5,12 +5,6 @@ const productSchema = mongoose.Schema({
         required: true,
         minLength: 5
     },
-    slug:{
-        type:String,
-        unique:true,
-        lowercase:true,
-        index:true
-    },
     price: {
         type: Number,
         required: true
@@ -19,13 +13,32 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    image:{
+        type:String
+    },
+    sale:{
+        type:Number
+    },
+    status:{
+        type:Number
+    },
     category: {
         type: ObjectId,
         ref:"Category"
-    },
-    shipping:{
-        type:String,
-        require:true
     }
 }, { timestamp: true })
-export default mongoose.model('Product', productSchema);
+
+// slug:{
+//     type:String,
+//     unique:true,
+//     lowercase:true,
+//     index:true
+// },
+
+productSchema.index({name:'text'});
+
+const Products = mongoose.model('Product', productSchema);
+
+Products.createIndexes({name:'text'})
+
+export default Products 
