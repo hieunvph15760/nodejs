@@ -22,7 +22,7 @@ app.use('/api',contactRouter);
 app.use('/api',order);
 app.use("/api",orderDetails);
 
-const PORT = 3001;
+const PORT = 3002;
 
 mongoose.connect("mongodb://localhost:27017/web16306")
     .then(() => console.log("Kết nối thành công !"))

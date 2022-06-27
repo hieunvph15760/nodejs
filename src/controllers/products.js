@@ -54,8 +54,9 @@ export const update = async(req, res) => {
 }
 
 export const sort = async(req,res) =>{
+    const sort = req.query.sort;
     try {
-        const product = await Product.find().sort({price: 'asc'});
+        const product = await Product.find().sort(sort).exec();
         res.json(product);
     } catch (error) {
         res.status(400).json({

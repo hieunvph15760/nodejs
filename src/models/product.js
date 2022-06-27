@@ -39,6 +39,6 @@ productSchema.index({name:'text'});
 
 const Products = mongoose.model('Product', productSchema);
 
-Products.createIndexes({name:'text'})
+Products.createIndexes({name:'text'});
 
 export default Products 
