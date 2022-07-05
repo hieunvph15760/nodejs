@@ -1,5 +1,5 @@
-import mongoose,{ObjectId} from "mongoose";
-
+import mongoose from "mongoose";
+const {ObjectId} = mongoose.Types
 const Orderdetail = mongoose.Schema({
     name:{
         type:String,

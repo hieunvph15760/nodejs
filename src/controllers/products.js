@@ -1,4 +1,4 @@
-import Product from '../models/product';
+import Product from '../models/product.js';
 import slugify from 'slugify';
 
 export const get = async(req, res) => {

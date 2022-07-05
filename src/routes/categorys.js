@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { userById } from '../controllers/user';
-import { create,getAll,read, remove, update } from '../controllers/category';
-import { isAuth,requirseSignin,isAdmin } from '../middleware/checkAuth'
+import { userById } from '../controllers/user.js';
+import { create,getAll,read, remove, update } from '../controllers/category.js';
+import { isAuth,requirseSignin,isAdmin } from '../middleware/checkAuth.js'
 const router = Router();
 router.get("/categories", getAll);
 router.get("/categories/:id", read);

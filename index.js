@@ -1,13 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import productRouter from './routes/products'
-import categoryRouter from './routes/categorys';
-import authRouter from './routes/auth';
-import userRouter from './routes/users';
-import contactRouter from './routes/contact';
-import order from "./routes/order";
-import orderDetails from "./routes/orderDetails";
+import productRouter from './src/routes/products.js'
+import categoryRouter from './src/routes/categorys.js';
+import authRouter from './src/routes/auth.js';
+import userRouter from './src/routes/users.js';
+import contactRouter from './src/routes/contact.js';
+import order from "./src/routes/order.js";
+import orderDetails from "./src/routes/orderDetails.js";
 
 
 const app = express();
@@ -24,7 +24,7 @@ app.use("/api",orderDetails);
 
 const PORT = 3002;
 
-mongoose.connect("mongodb://localhost:27017/web16306")
+mongoose.connect("mongodb+srv://hieuuchiha:ahieu2k2@cluster0.bvkxfg9.mongodb.net/Phonestore")
     .then(() => console.log("Kết nối thành công !"))
 
 app.listen(PORT, () => {

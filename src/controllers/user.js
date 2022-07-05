@@ -1,5 +1,4 @@
-import res from 'express/lib/response';
-import User from '../models/users';
+import User from '../models/users.js';
 
 export const userById = async (req,res,next,id)=>{
     try {

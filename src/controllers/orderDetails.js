@@ -1,4 +1,4 @@
-import OrderDetails from "../models/orderDetails";
+import OrderDetails from "../models/orderDetails.js";
 
 export const create = async (req,res) => {
     try {
