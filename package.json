@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node index.js --exec babel-node -e js",
-    "build": "node build"
+    "build": "node index.js"
   },
   "repository": {
     "type": "git",
