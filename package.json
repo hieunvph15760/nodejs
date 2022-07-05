@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js --exec babel-node -e js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "[my-framework] build --output public"
+    "build": "node index.js"
   },
   "repository": {
     "type": "git",
